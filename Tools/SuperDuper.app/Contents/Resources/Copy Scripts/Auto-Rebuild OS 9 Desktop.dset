@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Class</key>
+	<string>Include</string>
+	<key>Description</key>
+	<string>This script ignores the OS 9 "Desktop" files when copying from (source) to (target).
+
+This is helpful when moving OS9 from one volume to another: when you boot from an OS 9 clone, it's necessary to rebuild the Desktop before the clone will work properly. Including this script in will cause the rebuild to be automatically performed the next time OS 9 is launched.</string>
+	<key>Directives</key>
+	<array>
+		<dict>
+			<key>Directive</key>
+			<string>exclude</string>
+			<key>Item</key>
+			<string>Desktop DB</string>
+		</dict>
+		<dict>
+			<key>Directive</key>
+			<string>exclude</string>
+			<key>Item</key>
+			<string>Desktop DF</string>
+		</dict>
+	</array>
+	<key>Include Directives</key>
+	<array/>
+</dict>
+</plist>

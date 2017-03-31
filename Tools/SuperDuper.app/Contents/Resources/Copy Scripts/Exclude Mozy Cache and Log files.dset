@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Class</key>
+	<string>Include</string>
+	<key>Description</key>
+	<string>All Mozy Caches and Logs on (source) will be excluded by this script when copying to (target).</string>
+	<key>Directives</key>
+	<array>
+		<dict>
+			<key>Directive</key>
+			<string>exclude</string>
+			<key>Item</key>
+			<string>Library/Caches/Mozy*</string>
+		</dict>
+		<dict>
+			<key>Directive</key>
+			<string>exclude</string>
+			<key>Item</key>
+			<string>Library/Logs/Mozy*</string>
+		</dict>
+	</array>
+	<key>Include Directives</key>
+	<array/>
+</dict>
+</plist>

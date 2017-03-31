@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Class</key>
+	<string>Include</string>
+	<key>Description</key>
+	<string>The X11R6 user applications and FINK software package directory (/sw) on (source) will be shared with (target).</string>
+	<key>Directives</key>
+	<array>
+		<dict>
+			<key>Directive</key>
+			<string>symlink</string>
+			<key>Item</key>
+			<string>usr/X11R6</string>
+		</dict>
+		<dict>
+			<key>Directive</key>
+			<string>symlink</string>
+			<key>Item</key>
+			<string>sw</string>
+		</dict>
+		<dict>
+			<key>Directive</key>
+			<string>symlink</string>
+			<key>Item</key>
+			<string>opt/local</string>
+		</dict>
+	</array>
+	<key>Include Directives</key>
+	<array/>
+</dict>
+</plist>

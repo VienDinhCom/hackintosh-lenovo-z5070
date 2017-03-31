@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Class</key>
+	<string>Composite</string>
+	<key>Description</key>
+	<string>All files will be copied, except for user files and installed 3rd party (non-Apple) applications, which will be shared between (source) and (target).
+
+User files include all Home folders as well as user-specific data stored elsewhere (such as your iSync data). Any changes made to these files on either drive will automatically be reflected on the other, ensuring you can recover from any trouble quickly and easily, without losing your work, simply by restarting with your startup disk set to (source).
+
+Sharing applications saves space on (target), while still allowing them to be run.</string>
+	<key>Directives</key>
+	<array>
+		<dict>
+			<key>Directive</key>
+			<string>clone</string>
+			<key>Item</key>
+			<string>Library/Caches/com.apple.LaunchServices.*.csstore</string>
+		</dict>
+	</array>
+	<key>Include Directives</key>
+	<array>
+		<string>Exclude system temporary files.dset</string>
+		<string>Exclude system cache files.dset</string>
+		<string>Exclude Norton FileSaver files.dset</string>
+		<string>Exclude Google Desktop Index files.dset</string>
+        	<string>Exclude Backblaze files.dset</string>
+		<string>Exclude Previous Systems.dset</string>
+		<string>Exclude iTunes Temporary files.dset</string>
+		<string>Exclude Mozy Cache and Log files.dset</string>
+		<string>Exclude PGP Whole Disk Encryption files.dset</string>
+        	<string>Exclude Local Revision and Backup files.dset</string>
+		<string>Exclude Transporter Library mount.dset</string>
+		<string>Share X11 applications.dset</string>
+		<string>Share Classic applications.dset</string>
+		<string>Copy applications, sharing non-Apple.dset</string>
+		<string>Share Users.dset</string>
+	</array>
+</dict>
+</plist>

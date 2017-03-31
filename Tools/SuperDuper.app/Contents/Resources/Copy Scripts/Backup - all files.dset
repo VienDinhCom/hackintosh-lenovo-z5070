@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Class</key>
+	<string>Composite</string>
+	<key>Description</key>
+	<string>All files on (source) will be copied to (target), except the temporary and system-specific files that Apple recommends excluding.</string>
+	<key>Directives</key>
+	<array/>
+	<key>Include Directives</key>
+	<array>
+		<string>Exclude system temporary files.dset</string>
+		<string>Exclude system cache files.dset</string>
+		<string>Exclude Norton FileSaver files.dset</string>
+		<string>Exclude Google Desktop Index files.dset</string>
+        	<string>Exclude Backblaze files.dset</string>
+		<string>Exclude iTunes Temporary files.dset</string>
+		<string>Exclude Mozy Cache and Log files.dset</string>
+		<string>Exclude PGP Whole Disk Encryption files.dset</string>
+		<string>Exclude Local Revision and Backup files.dset</string>
+		<string>Exclude Transporter Library mount.dset</string>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Class</key>
+	<string>Include</string>
+	<key>Description</key>
+	<string>All system cache files (/var/db/NetworkInterfaces.xml, /Library/Caches/com.apple.LaunchServices.LocalCache.csstore, and /System/Library/Extenstions.kextcache) will be excluded by this script.</string>
+	<key>Directives</key>
+	<array>
+		<dict>
+			<key>Directive</key>
+			<string>exclude</string>
+			<key>Item</key>
+			<string>Library/Caches/com.apple.LaunchServices.*.csstore</string>
+		</dict>
+		<dict>
+			<key>Directive</key>
+			<string>exclude</string>
+			<key>Item</key>
+			<string>System/Library/Extensions.kextcache</string>
+		</dict>
+		<dict>
+			<key>Directive</key>
+			<string>exclude</string>
+			<key>Item</key>
+			<string>private/var/db/NetworkInterfaces.xml</string>
+		</dict>
+		<dict>
+			<key>Directive</key>
+			<string>exclude</string>
+			<key>Item</key>
+			<string>private/var/db/BootCache.playlist</string>
+		</dict>
+		<dict>
+			<key>Directive</key>
+			<string>exclude</string>
+			<key>Item</key>
+			<string>private/var/db/volinfo.database</string>
+		</dict>
+		<dict>
+			<key>Directive</key>
+			<string>exclude</string>
+			<key>Item</key>
+			<string>.hotfiles.btree</string>
+		</dict>
+                <dict>
+                        <key>Directive</key>
+                        <string>exclude</string>
+                        <key>Item</key>
+                        <string>System/Library/Caches/com.apple.kext.caches/*/*</string>
+                </dict>
+                <dict>
+                        <key>Directive</key>
+                        <string>exclude</string>
+                        <key>Item</key>
+                        <string>System/Library/Caches/com.apple.bootstamps/*</string>
+                </dict>
+                <dict>
+                        <key>Directive</key>
+                        <string>exclude</string>
+                        <key>Item</key>
+                        <string>System/Library/Caches/com.apple.corestorage/*</string>
+                </dict>
+                <dict>
+                        <key>Directive</key>
+                        <string>exclude</string>
+                        <key>Item</key>
+                        <string>System/Library/Caches/com.apple.coresymbolicationd/*</string>
+                </dict>
+
+	</array>
+	<key>Include Directives</key>
+	<array/>
+</dict>
+</plist>

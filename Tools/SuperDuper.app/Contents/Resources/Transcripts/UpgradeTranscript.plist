@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Type</key>
+		<string>Upgrade</string>
+	<key>PhaseList</key>
+	<array>
+		<dict>
+			<key>Phase</key>
+			<string>upgrade</string>
+			<key>ActionList</key>
+			<array>
+				<dict>
+					<key>Action</key>
+					<string></string>
+					<key>infoMsg</key>
+					<string>shouldDownloadUpgradePackage</string>
+					<key>CommandList</key>
+					<array>
+						<dict>
+							<key>command</key>
+							<string>curl SDHTTPproxy.Host --silent --show-error --output /tmp/superduper.tar.gz -L SDdownloadURL</string>
+							<key>infoMsg</key>
+							<string>Downloading update package...</string>
+							<key>parseMethod</key>
+							<string>indeterminate:</string>
+						</dict>
+						<dict>
+							<key>command</key>
+							<string>cd /tmp; if [ -d superduper_install ]; then rm -rf superduper_install; fi; mkdir superduper_install; tar xzf superduper.tar.gz; rm /tmp/superduper.tar.gz; if [ -d '/Library/Receipts/SuperDuper!.pkg' ]; then rm -rf '/Library/Receipts/SuperDuper!.pkg'; fi;</string>
+							<key>infoMsg</key>
+							<string>Preparing update package</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Action</key>
+					<string></string>
+					<key>infoMsg</key>
+					<string>shouldInstallUpgrade</string>
+				    <key>StatusViewClass</key>
+				    <string>SDInfoStatusInstallerActionSubview</string>
+					<key>CommandList</key>
+					<array>
+						<dict>
+							<key>command</key>
+							<string>ls -l SDAppBundle.'Path/Contents/MacOS/SDAgent | grep -q '\-r\-sr\-xr\-x'; echo $? > /tmp/SDAgent.mode</string>
+							<key>infoMsg</key>
+							<string>Preserving SDAgent owner and mode bits</string>
+						</dict>					
+						<dict>
+							<key>command</key>
+							<string>installer -allow -verboseR -dumplog -pkg '/tmp/SuperDuper!.pkg' -target / >&amp;1 2>&amp;1;</string>
+							<key>infoMsg</key>
+							<string>Installing upgrade package</string>
+							<key>parseMethod</key>
+							<string>installPackage:</string>
+						</dict>
+						<dict>
+							<!-- The legacy packagemaker packages use the default install location /Applications/Utilities, so copy to the new default install location /tmp/superduper_install if necessary -->
+							<!-- After all users have upgrade to 2.0, change the default install location for future upgrades to /tmp/superduper_install -->
+							<key>command</key>
+							<string>if [ ! -d '/tmp/superduper_install/SuperDuper!.app' ]; then ditto -rsrc '/Applications/Utilities/SuperDuper!.app' '/tmp/superduper_install/SuperDuper!.app'; fi</string>
+							<key>infoMsg</key>
+							<string>Copying upgrade bundle to temporary location</string>
+						</dict>
+						<dict>
+							<key>command</key>
+							<string>rm -rf SDAppBundle.'Path; ditto -rsrc '/tmp/superduper_install/SuperDuper!.app' SDAppBundle.'Path; chown -R SDUser.uid:SDUser.gid SDAppBundle.'Path</string>
+							<key>infoMsg</key>
+							<string>Copying upgrade bundle to installation location SDAppBundle.'Path</string>
+						</dict>
+						<dict>
+							<key>command</key>
+							<string>if [ $(cat /tmp/SDAgent.mode) -eq 0 ]; then chown root SDAppBundle.'Path/Contents/MacOS/SDAgent; chmod 4555 SDAppBundle.'Path/Contents/MacOS/SDAgent; else chmod 0555 SDAppBundle.'Path/Contents/MacOS/SDAgent; fi; rm /tmp/SDAgent.mode</string>
+							<key>infoMsg</key>
+							<string>Restoring SDAgent owner and mode bits</string>
+						</dict>					
+						<dict>
+							<key>command</key>
+							<string>rm -rf '/tmp/SuperDuper!.pkg' '/tmp/superduper_install' '/Library/Receipts/SuperDuper!.pkg'; if [ SDAppBundle.'Path != '/Applications/Utilities/SuperDuper!.app' -a -d '/Applications/Utilities/SuperDuper!.app' ]; then rm -rf '/Applications/Utilities/SuperDuper!.app'; fi</string>
+							<key>infoMsg</key>
+							<string>Cleaning up installation items</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>Action</key>
+					<string></string>
+					<key>infoMsg</key>
+					<string>shouldReLaunchApplication</string>
+				    <key>StatusViewClass</key>
+				    <string>SDInfoStatusTwoLineActionSubview</string>
+					<key>CommandList</key>
+					<array>
+						<dict>
+							<key>command</key>
+							<string>sleep 1</string>
+							<key>infoMsg</key>
+							<string>Re-launching SuperDuper! in 3 seconds to complete upgrade</string>
+							<key>parseMethod</key>
+							<string>infoMsg:</string>
+						</dict>
+						<dict>
+							<key>command</key>
+							<string>sleep 1</string>
+							<key>infoMsg</key>
+							<string>Re-launching SuperDuper! in 2 seconds to complete upgrade</string>
+							<key>parseMethod</key>
+							<string>infoMsg:</string>
+						</dict>
+						<dict>
+							<key>command</key>
+							<string>sleep 1</string>
+							<key>infoMsg</key>
+							<string>Re-launching SuperDuper! in 1 second to complete upgrade</string>
+							<key>parseMethod</key>
+							<string>infoMsg:</string>
+						</dict>
+						<dict>
+							<key>command</key>
+							<string>nohup /bin/bash -c "sleep 1; kill -SIGQUIT SDApp.pid; sleep 3; sudo -P -u \#SDUser.uid open SDAppBundle.'Path"</string>
+							<!--
+							<string>/bin/bash -v -c "pid=SDApp.pid; while [ \"\${pid}x\" = \"SDApp.pidx\" ]; do echo \"kill -SIGQUIT SDApp.pid\"; (( limit += 1)); if (( limit >= 5 )); then kill -SIGKILL SDApp.pid; break; fi; sleep 1; pid=\$(ps ax | awk '/SuperDuper\!.app/ {print \$1}'); done; sudo -P -u \#SDUser.uid open SDAppBundle.'Path"</string>
+							-->
+							<key>infoMsg</key>
+							<string>Re-launching SuperDuper!</string>
+							<key>parseMethod</key>
+							<string>infoMsg:</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+    </array>
+</dict>
+</plist>

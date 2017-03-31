@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Class</key>
+	<string>Include</string>
+	<key>Description</key>
+	<string>This script will share the users on (source) with (target), which ensures that any changes to user data on one will be automatically reflected on the other.</string>
+	<key>Directives</key>
+	<array>
+		<dict>
+			<key>Directive</key>
+			<string>symlink</string>
+			<key>Item</key>
+			<string>Users/*</string>
+		</dict>
+    <dict>
+      <key>Directive</key>
+      <string>clone</string>
+      <key>Item</key>
+      <string>Users/Shared</string>
+    </dict>
+    <dict>
+      <key>Directive</key>
+      <string>symlink</string>
+      <key>Item</key>
+      <string>Users/Shared/*</string>
+    </dict>
+    <dict>
+      <key>Directive</key>
+      <string>clone</string>
+      <key>Item</key>
+      <string>Users/Shared/adi</string>
+    </dict>
+		<dict>
+			<key>Directive</key>
+			<string>symlink</string>
+			<key>Item</key>
+			<string>Users/.*</string>
+		</dict>
+		<dict>
+			<key>Directive</key>
+			<string>symlink</string>
+			<key>Item</key>
+			<string>Library/Application Support/SyncService</string>
+		</dict>
+		<dict>
+			<key>Directive</key>
+			<string>symlink</string>
+			<key>Item</key>
+			<string>Library/OpenBase</string>
+		</dict>
+	</array>
+	<key>Include Directives</key>
+	<array/>
+</dict>
+</plist>

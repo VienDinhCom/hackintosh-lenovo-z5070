@@ -1,0 +1,1036 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 LucidaGrande;\f1\fswiss\fcharset0 Helvetica;\f2\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red251\green2\blue7;\red255\green0\blue0;\red85\green26\blue139;
+\red0\green0\blue238;}
+{\info
+{\author David Nanian}}\margl1440\margr1440\vieww14460\viewh13600\viewkind0
+\deftab720
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\f0\fs24 \cf0 Thank you for downloading SuperDuper!\
+\
+SuperDuper is designed to make it easy for you to backup and isolate your computer from unwanted system changes.\
+\
+While SuperDuper can be used as a flexible disk copying utility, it goes well beyond mere duplication. Its unique "Sandbox" feature lets you install potentially risky drivers or system updates without fear of creating an unbootable or unworkable system\'97or losing access to your critical personal data.\
+\
+SuperDuper's power is accessible to all Macintosh users, thanks to its easily understood interface and complete documentation. Everything that will occur is presented in a clear summary section entitled "
+\b What's going to happen?
+\b0 ", ensuring that even the least experienced is guided through the process step by step.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 Documentation
+\b0\fs8 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\fs24 \cf0 SuperDuper comes with complete documentation. To access it, start SuperDuper and choose 
+\b User's Guide
+\b0  from the 
+\b Help
+\b0  menu.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+Revision History\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\fs24 \cf2     Version 2.9.1(v98)\cf0 , September 12, 2016
+\b0 \cf2 \
+
+\b \cf0 	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b0 \cf0 		\'95 Official macOS Sierra (10.12) compatibility\
+		\'95 Improve (and speed up) backup boot in some edge case scenarios\
+		\'95 Work around "Busy image" cases when doing read-only conversion\
+		\'95 Speed up quit when shutting down or restarting\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\pardeftab720\ri0\partightenfactor0
+
+\fs24 \cf2     Version 2.9(v97)\cf0 , August 31, 2016
+\b0 \cf2 \
+
+\b \cf0 	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b0 \cf0 		\'95 Improved bootability of RAID clones\
+		\'95 Add application preference to ignore copy errors induced by Antivirus programs\
+		\'95 Schedules now enable 
+\b Backup on connect
+\b0  for SoftRAID volumes\
+		\'95 Restored dyld cache rebuild after copy for 10.8 and later\
+		\'95 The Mac App Store will now operate properly when running from a Sandbox\
+		\'95 Scheduled Copies window sort order is preserved between launches\
+		\'95 Disk Image Save Panel defaults to Sparse Bundle image type\
+		\'95 Hard linked files made invalid in 10.10.3 will be now be copied instead of failing due to a link permission error\
+		\'95 Fixed the long-standing upgrade animation bug that prevented the full update text from being visible (note: you won't experience the fix until the next auto upgrade)\
+		\'95 Fixed intermittent beachballs during launch\
+		\'95 Fixed numerous UI issues/edge-cases\
+		\'95 Eliminated exceptions that occasionally caused crashes during launch\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf3 \
+Version 2.8.1(96.1)\cf0 , November 1, 2015\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b0 \cf0 		\'95 Resolved intermittent El Capitan \'93premature EOF\'94 error\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf3 Version 2.8(96)\cf0 , September 15, 2015\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b0 \cf0 		\'95 El Capitan "rootless security" and volume permissions support\
+			\'95 Due to changes in El Capitan, you 
+\b must
+\b0  delete and recreate your schedules after installing this version\
+		\'95 Improved scheduling\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf3 Version 2.7.5(95)\cf0 , November 20, 2014\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b0 \cf0 		\'95 Fixes issue with \'93looping symlinks\'94 in some app frameworks (MDRP, FileMaker Deluxe Pro, iPhoto Library Manager 2, TextMate)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf3 \
+Version 2.7.4(94)\cf0 , November 18, 2014\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b0 \cf0 		\'95 
+\b Significantly
+\b0  faster copying\
+		\'95 Even 
+\b smarter
+\b0  Smart Updates, with finer-grained copying\
+		\'95 Automatically excludes (and preserves) the Backblaze \'93.bzvol\'94 folder\
+		\'95 Upgrade animation error fixed (so the 
+\b next
+\b0  update announcement will be visible for those who aren\'92t seeing it now), Rocky! This time for sure!\
+		\'95 Various other fixes and improvements\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf3 Version 2.7.3(93)\cf0 , October 16, 2014\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b0 \cf0 		\'95 Yosemite support\
+		\'95 Signed with new v2 certificates\
+		\'95 EA change detection improvements\
+		\'95 \'93Backup on Connect\'94 fix for drives that have the word \'93Backup\'94 in them (previously available at the Shirt Pocket blog)\
+		\'95 Various other fixes and improvements\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf3 \
+Version 2.7.2(92)\cf0 , February 22, 2014\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b0 \cf0 		\'95 Mavericks support\
+		\'95 Schedules now launched through launchd\
+		\'95 Automatic mount and eject under 10.8 and later now works\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf3 Version 2.7.2(92)\cf0 , February 22, 2014\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b0 \cf0 		\'95 Mavericks support\
+		\'95 Schedules now launched through launchd\
+		\'95 Automatic mount and eject under 10.8 and later now works\
+		\'95 Improved handling of inter-application messaging (Growl, etc)\
+		\'95 Fixes for large extended attribute errors\
+		\'95 \'93Copy Job\'94 (scheduler) error panel fixes\
+		\'95 ACL copy improvements\
+		\'95 Smart Update enhancements\
+		\'95 Drive capacity indications in source and destination pop-ups\
+		\'95 Drive information tooltips for source and destination pop-ups\
+		\'95 Drive capacity warnings in \'93What\'92s going to happen?\'94\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf3 Version 2.7.1(91)\cf0 , September 4, 2012\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b0 \cf0 		\'95 Additional improvements to file copy error handling and reporting\
+		\'95 Fixed underreporting of file statistics in the log and status display\
+		\'95 Improvements to Sandboxing for Mountain Lion users\
+		\'95 Fixed Growl support under 10.4.11\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf3 Version 2.7(90)\cf0 , July 25, 2012\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b0 \cf0 		\'95 Mountain Lion compatibility\
+		\'95 Gatekeeper support - signed application\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b \cf0 		
+\b0 \'95 Copy speed improvements\
+		\'95\'a0Mid-file-copy status updates to improve user-level feedback\
+		\'95 "Vanishing files" no longer trigger directory error detection\
+
+\b 		
+\b0 \'95 Both App Store and non-App Store versions of Growl are supported (tested up to v1.4); Notification Center supported through Growl\
+
+\b 		
+\b0 \'95 Local snapshots (.MobileBackups) no longer copied to backup (they are in an un-copyable state too often)\
+
+\b 		
+\b0 \'95 Send to Shirt Pocket email address improvements\
+		\'95 New applications introduced in Mountain Lion are copied when using the Sandbox - shared users and applications copy script\
+		\'95 Yet even better handling of 'dead' and 'bad' mount points on startup\
+		\'95 Better handling of 'dead' and 'bad' mount points on startup\
+		\'95 Improvements made when copying highly active files\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf3 Version 2.6.4(89)\cf0 , July 9, 2011\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b0 \cf0 		\'95 SuperDuper now prevents the destination from being manually ejected during copy\
+		\'95 Proper error message now issued when a destination ejects itself due to hardware errors\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b \cf0 		
+\b0 \'95 Resolved AppleScript dictionary compatibility issues under 10.4 that prevented scheduled copies and some shutdown actions from running\
+		\'95\'a0Overly aggressive copy verification under Leopard no longer cause copies to fail on highly active files\
+		\'95 Setting permissions on read-only disk images no longer fail when there are bad OSAXen installed\
+
+\b 		
+\b0 \'95 Launchpad and Mission Control are now shared for Sandboxes\
+
+\b 		
+\b0 \'95 Sandbox script syntax error corrected\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf3 Version 2.6.3(88)\cf0 , July 1, 2011\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		
+\b0 \'95 Initial Mac OS X Lion support\
+
+\b 		
+\b0 \'95 Scheduling usability improvements\
+
+\b 		
+\b0 \'95 SuperDuper! can eject and unmount 
+\b internal
+\b0  drives after copy\
+
+\b 		
+\b0 \'95 Improved handling of target volumes that disappear during copy\
+		\'95 In-app support request now posts directly, rather than sending email\
+		\'95 Files that vanish between initial file copy and attribute update no longer cancel copy\
+
+\b 		
+\b0 \'95 "Backup on connect" now works on 10.4 Tiger\
+
+\b 		
+\b0 \'95 The During Copy progress bar updates properly for drives larger than 1TB\
+
+\b 		
+\b0 \'95 Very large nonstandard compressed files will copy without error\
+
+\b 		
+\b0 \'95 Users will be warned when copying between volumes with different case-sensitivity\
+		\'95 Additional I/O error detection handling during copies\
+		\'95 Files with the user append flag set are properly removed without error\
+		\'95 Drive selection is maintained if the user clicks Cancel\
+		\'95 To simplify registration, SuperDuper! will swap the registration username and key if necessary\
+		\'95 Files with the same name but different case are properly removed when copying from a case insensitive to case sensitive volume\
+		\'95 Improved /Network exclusion logic upon error\
+		\'95 /DamagedFiles, /lost+found and /cores are now excluded during copy\
+		\'95 Sandboxing now shares App Store and Facetime\
+		\'95 Symantec Antivirus files now excluded during copy\
+		\'95\'a0Mozy cache and log files are excluded during copy\
+		\'95 Dynamic link loader maps are not longer copied\
+		\'95 Upgraded 3rd party frameworks to latest revision (e.g. Growl SDK to 1.2.1)\
+
+\b 		
+\b0 \'95 Many other changes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf3 \
+Version 2.6.2(87)\cf0 , October 13, 2009\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		
+\b0 \'95 Significant copy speed improvements\
+
+\b 		
+\b0 \'95 Preserves compression when copying\
+
+\b 		
+\b0 \'95 Fixed extra copying under Snow Leopard\
+
+\b 		
+\b0 \'95 Scheduled copies in old format are now disabled and we prompt the user to recreate\
+
+\b 		
+\b0 \'95 Scheduled copies work on Japanese systems and with more Unicode/composed character drive names\
+
+\b 		
+\b0 \'95 Backup-on-mount should work on 10.4.11\
+
+\b 		
+\b0 \'95 Adjusted SDUtil path to improve robustness when application is moved (now symlinked/refreshed)\
+
+\b 		
+\b0 \'95 Minor copy tweaks\
+
+\b 		
+\b0 \'95 Reworked SL status to use 1000B = 1MB, 1024B = MiB for Leopard and earlier.\
+
+\b 		
+\b0 \'95 Fixed crontab escaping if user has tcsh as their default shell\
+
+\b 		
+\b0 \'95 Fixed issues with explicit Spotlight disable/enable under 10.5+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf3 \
+Version 2.6.1(86)\cf0 , August 29, 2009\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		
+\b0 \'95 Worked around ACL/Permission check issue under 10.4.x\
+
+\b 		
+\b0 \'95 Corrected volume name quoting problems\
+
+\b 		
+\b0 \'95 Fixed "Restart Now" typo\
+
+\b 		
+\b0 \'95 Adjusted ownership enabling to work around unusual 10.5.x systems\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf3 \
+Version 2.6(85)\cf0 , August 28, 2009\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		
+\b0 \'95 Added direct Sparse Bundle support for 10.5+ users\
+
+\b 		
+\b0 \'95 Added new "Backup on connect" feature\
+
+\b 		
+\b0 \'95 Snow Leopard now fully supported\
+
+\b 		
+\b0 \'95 "Copy Now" button in Scheduled Copies window will work when schedules are disabled\
+
+\b 		
+\b0 \'95 A new "On completion" ejects the destination volume after the copy; the eject happens when SD! quits.\
+		\'95 The "Restore" copy script (which was only needed for backups that resided on the same volume as a Time Machine backup) is now available in the free version of SuperDuper!\
+		\'95 PGP full disk encryption is now supported\
+
+\b 		
+\b0 \'95 When intrusive "On completion" actions (Sleep, Restart, etc) are selected, a sheet counts down to allow you to cancel\
+		\'95 Disk Images mount faster under Leopard\
+
+\b 		
+\b0 \'95 "Infinite spinner" for completed copies in Scheduled Copies fixed\
+
+\b 		
+\b0 \'95 Fixed error when files deleted out from under us while copying\
+
+\b 		
+\b0 \'95 Time Machine backup volumes with hard linked & locked bundles/folders with hard link targets underneath now copy properly\
+		\'95 SuperDuper! will now re-prebind Leopard (and later) backups after copy to improve clone bootability\
+
+\b 		
+\b0 \'95 Worked around some copy issues with Intego VirusBarrier X5\
+
+\b 		
+\b0 \'95 Unicode characters in Drive names are now compatible with scheduling\
+
+\b 		
+\b0 \'95 Improved AppleScript dictionary (no more warnings)\
+
+\b 		
+\b0 \'95 Improved handling of images that are mounted prior to copy\
+		\'95 Smart Update now preserves "networked" Time Machine backups stored on a local drive\
+		\'95\'a0Worked around a bug that prevented the status view from updating on Intel Macs running 10.4.x\
+		\'95 Improved blessing support for RAID volumes\
+		\'95 Multiple SuperDuper! instances will no longer happen when multiple scheduled copies are set for the same time. 
+\b Note:
+\b0  to get this fix, you must recreate your scheduled copies.\
+		\'95 Scheduled Copy jobs will no longer launch under Leopard when the user is logged out. 
+\b Note:
+\b0  to get this fix, you must recreate your scheduled copies.\
+		\'95 Significantly improved Spotlight Index management\
+		\'95 Smart Update will no longer fail on directories with the uappnd flag set\
+		\'95 Copying volumes over 1 Terabyte no longer results in negative numbers in the status display\
+		\'95 Fixed a bug that allowed Users to select incompatable target volumes under some conditions\
+		\'95 SuperDuper! now recreates fifos and devices when "copying"\
+		\'95 The contents of /Network is now ignored in the copy scripts by default\
+		\'95 Google Desktop index is now ignored in the copy scripts\
+		\'95 SuperDuper! now handles double-quotes in an image name\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf3 \
+Version 2.5(84)\cf0 , February 5, 2008\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		
+\b0 \'95 Complete OS X 10.5 (Leopard) compatibility including bootable Leopard backups
+\b\fs28 \
+
+\fs24 		
+\b0 \'95 You can now store a bootable backup side-by-side with a Time Machine backup on a single volume
+\b\fs28 \
+
+\fs24 		
+\b0 \'95 The ability to copy Time Machine backup volumes to other drives when you need more space (or want to back up your archived data)
+\b\fs28 \
+
+\fs24 		
+\b0 \'95 A "Run Now" button runs Scheduled Copies on demand\
+
+\b 		
+\b0 \'95 Automatic preservation of any custom icon on the destination volume
+\b\fs28 \
+
+\fs24 		
+\b0 \'95 Improved post-registration text to inform users how to use Smart Update\
+
+\b 		
+\b0 \'95 Expos\'e9, Time Machine, Spaces and Front Row are now copied on Leopard Sandboxes\
+
+\b 		
+\b0 \'95 Updated Backup copy scripts to ignore Google Desktop Index Files and iTunes temporary files\
+
+\b 		
+\b0 \'95 More robust handling of delayed re-mounts after a volume has been erased\
+
+\b 		
+\b0 \'95 Added a new copy script "Restore - all files" that will restore everything except a Time Machine archive if it exists on the source.\
+
+\b 		
+\b0 \'95 The WGTH text now describes the effect of the selected options upon Time Machine backups\
+
+\b 		
+\b0 \'95 SuperDuper! will repair volinfo databases that contain blanks lines erroneously inserted by the Apple Setup Assistant\
+
+\b 		
+\b0 \'95 Improved Growl error reporting for scheduled copies\
+
+\b 		
+\b0 \'95 Significant improvements to ACL and permissions cloning\
+
+\b 		
+\b0 \'95 Improved handling of Spotlight indexing on the target volume\
+
+\b 		
+\b0 \'95 Custom volume icons and file system events are preserved on the target volume\
+
+\b 		
+\b0 \'95 Resolved a bug that caused a crash during auto upgrade on some Intel Macs\
+
+\b 		
+\b0 \'95 The dock icon will bounce if the copy fails\
+
+\b 		
+\b0 \'95 Improved the etched text rendering under Leopard\
+
+\b 		
+\b0 \'95 Smart Update will copy files with name case changes\
+
+\b 		
+\b0 \'95 Locked symlinks are properly copied during Smart Update\
+
+\b 		
+\b0 \'95 Immutable symlinks are properly copied during Smart Update\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf3 Version 2.1.4(82)\cf0 , February 27, 2007\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		
+\b0 \'95 Displays are no longer kept active during a copy\
+
+\b 		
+\b0 \'95 Scheduled copies work properly with the Japanese locale/language settings\
+
+\b 		
+\b0 \'95 Auto update mechanism extended to support Mac OS X version specific updates\
+
+\b 		
+\b0 \'95 Extended attributes now copied for files flagged with uchg\
+
+\b 		
+\b0 \'95 Preliminary compatibility support for Leopard\
+
+\b 		
+\b0 \'95 Resolved a bug that caused scheduled copy logs to be written to the incorrect log file\
+
+\b 		
+\b0 \'95 Re-fixed 10.3.9 image creation\
+
+\b 		
+\b0 \'95 Fixed 5th parameter to before/after scripts\
+
+\b 		
+\b0 \'95 Improved crontab handling\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf3 Version 2.1.3(80)\cf0 , July 13, 2006\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		
+\b0 \'95 Added the ability to disable copying Access Control Lists (ACLs)\
+		\'95 
+\b What's going to happen?
+\b0  now says when the destination is an image\
+		\'95 No longer attempts to restart from an image set as the destination or to set an image as the startup volume\
+		\'95 Image creation once again works properly under 10.3.9\
+		\'95 Scheduling copy jobs now accept volumes with multi-byte characters in their name\
+		\'95 Scheduling now works properly in 10.3.x for Japanese language users\
+		\'95 Resolved a bug that allowed users to select a sparse image file (as opposed to volume) in the source pop-up\
+		\'95 Enabling ownership no longer fails if the volinfo.database is missing\
+		\'95 Resolved a bug that caused the auto-upgrade view to "flash" when displayed\
+		\'95 Fixes made to after-copy Growl notifications\
+		\'95 Addressed a few miscellaneous UI glitches\
+		
+\b\fs28 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf3 Version 2.1.2(79)\cf0 , June 13, 2006\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		
+\b0 \'95 Adds Growl support for flexible notification of manual and scheduled copy operations (you must recreate scheduled items to get notifications)\
+
+\b 		
+\b0 \'95 The copy mode (e.g. Smart Update) is now displayed in the status view during a copy\
+
+\b 		
+\b0 \'95 Revised User's Guide\
+
+\b 		
+\b0 \'95 Directory cycle detection recovery works properly\
+
+\b 		
+\b0 \'95 Improved handling of ACL copy errors\
+		\'95 Resolves crash caused by invalid Scripting Additions or Components\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf3 \
+Version 2.1.1(78)\cf0 , May 17, 2006\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		
+\b0 \'95 Scheduled copies will automatically mount and unmount local volumes if the volume is not mounted when the copy starts. (Existing scheduled copies must be deleted and re-created to get the new behavior.)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf0 		
+\b0 \'95 SuperDuper no longer prompts to overwrite read/write images when they select an existing sparse image as the destination\
+
+\b 		
+\b0 \'95 Read/Write "Sparse" images are now the default image type when users select a new image as the destination\
+
+\b 		
+\b0 \'95 Resolved a problem that prevented locked-but-removed folders on the destination volume from being deleted (error 10000)\
+
+\b 		
+\b0 \'95 Fixed "Next copy" date prediction display problem\
+		\'95 Volumes with "'" in their name no longer cause errors\
+		\'95 Corrected rare, Intel-specific issue that caused folder creation failure in some situations\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		\'95 System "Extended attribute" memory diagnostics are no longer logged to the system log file\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+
+\b \cf0 		
+\b0 \'95 Added logging of certain Apple API exceptions if they are raised during copy\
+		\'95 Worked around eSellerate library "Recovered Files" issue; changed SuperDuper! to install the library "just in time"\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+\cf0 		\'95 Improved image handling and ownership\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf3 Version 2.1(77)\cf0 , March 9, 2006\
+	
+\b0 \'95
+\b  Universal Application \'97 fully Intel Mac compatible!\
+	
+\b0 \'95 
+\b Enhancements & Bug Fixes\
+		
+\b0 \'95 Added preference to control restoring of volumes on launch\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		\'95 USB drives can be set as the startup disk on Intel Macs\
+		\'95 Added the date, time and architecture to the log\
+		\'95 Updated and improved the User's Guide\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+\cf0 		\'95 Detect and work around corrupted crontabs on user systems\
+\pard\tx1120\tx1320\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 	\'95	Scheduled copies properly respect all weekday and week settings, rather than running too often;  changed scheduling week 3/4 to proper date ranges\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		\'95 Resolved a bug that prevented "Next copy" date from being calculated for some months\
+		\'95 "Automatically copy..." state in the scheduling sheet is properly shown in the UI\
+		\'95 Errors during a scheduled copy no longer prevents queued scheduled copies from running\
+\pard\tx1120\tx1320\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 	\'95	The source and destination popups now properly refresh during mount and unmounts\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+\cf0 		\'95 Improved image mounting reliability when the image is stored on a network volume\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		\'95 Improved special character handling in paths\
+\pard\tx1120\tx1320\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 	\'95	Files within locked folders no longer fail with error 10000\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		\'95 Improved "busy file" copying\
+		\'95 Improved drive erase and mount robustness on some Macs\
+\pard\tx1120\tx1320\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 	\'95	Disk image file names with a '.' in them are now handled properly\
+	\'95	Disk images are mounted with the user's permissions to allow images to be stored on secure network shares\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		\'95 The copy script editor now resolves symlinks (e.g. /tmp resolves to /private/tmp), and automatically removes the /Volumes/volume-name prefix\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+\cf0 		\'95 Fixed a bug that caused ACLs to replicate on the destination volume in some situations\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 		\'95 "Sandbox - shared users and applications" now copies Apple applications iDVD, iMovie, GarageBand and Photo Booth (does not copy iWeb or iWork)\
+\pard\tx1120\tx1320\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li1340\fi-980\ri0\partightenfactor0
+\cf0 	\'95 Improved Trash handling\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf3 \
+Version 2.0.1(76)\cf0 , November 29, 2005\
+	
+\b0 \'95 
+\b Bug fix release\
+		
+\b0 \'95 Added support for certain Apple RAID sets that weren't appearing in the source/destination pop-ups\
+		\'95 Fixed a bug that caused SuperDuper! to crash upon launch for some users\
+		\'95 Fixed a problem in error recovery in 10.3.9 that caused a failure without a good diagnostic message\
+		\'95 Scheduled jobs can now run when referenced by a path that contains a symlink\
+		\'95 Fixed erroneous text that gave an incorrect (old) price\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf3 Version 2.0(75)\cf0 , November 23, 2005\
+	
+\b0 \'95 
+\b First public release of SuperDuper! v2.0.\
+	
+\b0 \'95 
+\b Hundreds of changes, including:\
+		
+\b0 \'95 Scheduling\
+		\'95 New status view\
+		\'95 Extensively reworked UI\
+		\'95\'a0More "On completion" choices including quit, sleep, shut down\
+		\'95\'a0Direct "sparse image" support including auto mount and unmount\
+		\'95\'a0Rewritten, task-based User's Guide with Table of Contents and internal links\
+		\'95\'a0Special Spotlight handling to improve performance\
+		\'95\'a0Improved logging\
+		\'95\'a0Contact support directly inside the application, automatically including the log if needed\
+		\'95\'a0Improved file copying\
+		\'95\'a0Improved AppleScript support\
+		\'95\'a0Auto-install when run from the image\
+		\'95\'a0Many others: collect them all!\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf0 Version 1.5.5(74), April 6, 2004\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+
+\b0 \cf0 \'95 
+\b Tiger preparations.
+\b0  We've made various changes necessary to handle the upcoming release of Tiger (OS X 10.4). More information and updates will be available when Apple announces Tiger's release.\
+\'95 
+\b Safety Clone updated to handle Sticky Brain 3.
+\b0  The OpenBase database, used by Sticky Brain 3 and some other 3rd party applications, stores user data in an unusual location: this location is now shared when using a Safety Clone.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf0 \
+Version 1.5.4(73), December 16, 2004\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+
+\b0 \cf0 \'95 
+\b Improved On the Fly Verify.
+\b0  We've enhanced SuperDuper!'s ability to detect and correct for unusual permissions and ownership during a clone.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf0 Version 1.5.3(72), December 9, 2004\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+
+\b0 \cf0 \'95 
+\b Improved Safety Clone.
+\b0  SuperDuper!'s Safety Clone has been improved, and now even works with FileVaulted home folders.\
+\'95 
+\b Better special character handling.
+\b0   Quotes and other unusual characters in volume names no longer cause errors when the drive is backed up.\
+\'95 
+\b Corrected Jaguar Incompatibility.
+\b0  The Load/Save sheets no longer cause SuperDuper! to refuse to accept further commands under Jaguar.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf0 \
+Version 1.5.2(71), November 11, 2004\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+
+\b0 \cf0 \'95 
+\b Example script fix.
+\b0  The syntax error in the sample script (in the Extras folder) has been fixed.\
+\'95 
+\b Removed default name.
+\b0  The registration window previously filled in the Registration Name with the user's "long" login name. This caused confusion when that name was not the same name the user supplied during registration. We now leave this field blank.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf0 Version 1.5.1(70), November 1, 2004\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+
+\b0 \cf0 \'95 
+\b Root login fix.
+\b0  This version fixes a bug in 1.5(69) that caused boot problems with clones created when the user was logged in as the (normally disabled) root user.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf0 \
+Version 1.5(69), October 27, 2004\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+
+\b0 \cf0 \'95 
+\b AppleScript Support!
+\b0  AppleScript has been added to allow automatic operation (a full scheduling UI is on the way in the next major release). An example script is in the Extras folder, and the procedure to schedule it is discussed in the manual.\
+\'95	
+\b Pre-authentication.
+\b0  SuperDuper! can be unlocked (pre-authenticated) to allow copy operations to run without an authentication prompt.\
+\'95	
+\b On-the-Fly Verify!
+\b0  Our new, proactive verification dynamically corrects for unusual permissions that can confuse other programs, resulting in "data lockout" or unbootable clones - even repairing permissions can't do this!\
+\'95	
+\b UI Improvements!
+\b0  We've made many small tweaks and changes to make our user interface clearer than ever.\
+\'95	
+\b Better copying!
+\b0  Never satisfied, we've made significant improvements to Smart Update and all other copy operations.\
+\'95	
+\b Expanded and improved manual!
+\b0  Our terrific documentation is better than ever!\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf0 Version 1.3(68.2), August 12, 2004\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+
+\b0 \cf0 \'95 Works around a Jaguar bug that prevented 10.2.8 users from unlocking their keychain when booted from the cloned drive.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf0 Version 1.3(68.1), August 6, 2004\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+
+\b0 \cf0 \'95	Fixed a problem in auto-upgrade: if either the source or destination was "blank", clicking Upgrade wouldn't do anything.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf0 Version 1.3(68), August 6, 2004\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+
+\b0 \cf0 \'95 
+\b Back-to-back backups!
+\b0  You can now perform more than one backup without having to quit SuperDuper!\
+\'95	
+\b Saved Settings.
+\b0  You can save a whole group of settings -- source, destination, options and script -- and re-load them for re-use.\
+\'95 
+\b Automatic re-mounting.
+\b0  If a volume or image is available but not yet mounted, SuperDuper! will automatically locate and re-mount it. If it can't be found, SuperDuper! will prompt, and continue once you've plugged it in.\
+\'95	
+\b Remembered source and destination volumes.
+\b0  The source and destination volumes are now remembered when you quit SuperDuper!, and restored when you restart.\
+\'95	
+\b Faster!
+\b0  We've made numerous changes to improve performance - and SuperDuper! is faster than ever!\
+\'95	
+\b Better!
+\b0  We've worked to correct the bugs users have reported since the last release.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf0 \
+Version 1.2.3(65), May 20, 2004\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+
+\b0 \cf0 \'95 Corrected serial number validation error\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf0 Version 1.2.3(64), May 20, 2004\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+
+\b0 \cf0 \'95 Significantly expanded the manual with new sections on backing up, restoring and recovering from a disaster\
+\'95	Improved automatic update behavior, especially when running from the SuperDuper! disk image\
+\'95 Enhanced error handling\
+\'95 Various UI improvements\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf0 Version 1.2.2(63), April 14, 2004\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+
+\b0 \cf0 \'95 To save space, SuperDuper! now automatically shares Darwin Ports' /opt/local directory when doing a Safety Clone\
+\'95 Improved error handling when files legitimately vanish during copying (due to OS or other operations)\
+\'95 Automatically excludes the bad file installed by some versions of StuffIt (the files has no effect on the operation of StuffIt, and can be safely ignored by SuperDuper)\
+\'95	Added page numbers to the User Manual\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\b \cf0 \
+Version 1.2.1(62), April 1, 2004\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+
+\b0 \cf0 \'95 New installs now default to 
+\b Erase, then copy
+\b0  rather than 
+\b Smart Update
+\b0 \
+\'95 Changed the default image compression to "No compression" to improve performance (adjustable, as before, in SuperDuper's preferences)\
+\'95	Corrected a problem where two volumes with the same name under Mac OS X 10.2.8 would crash SuperDuper on launch\
+\'95	Changed implied default to 
+\b Erase, then copy
+\b0  when restoring from images\
+\'95 Fixed intermittent problem in the manual update check\
+\'95	Minor changes to the User Manual\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf0 Version 1.2(61), March 24, 2004
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+\cf0 \'95 Added the 
+\b Smart Update
+\b0  feature, which quickly and accurately updates a clone to exactly mirror the original\
+\'95	Added 
+\b Copy Different
+\b0 , which only copies files that are different (newer 
+\b or
+\b0  older)\
+\'95	Changed SuperDuper!'s install to pure drag-and-drop\
+\'95	Expanded and improved the User Manual\
+\'95 Simplified and improved aspects of the User Interface\
+\'95 Improved the operation of file specifications in Copy Scripts\
+\'95	Reworked the auto-upgrade mechanism to handle firewalls and blocked communication without an extended timeout\
+\'95 Fixed and improved various other minor issues\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf0 Version 1.1(56), February 18, 2004
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+\cf0 \'95 A "copy newer" option 
+\b greatly
+\b0  speeds up backup scripts\
+\'95	Now allows copying non-boot drives without using Option\
+\'95	Clarified and improved the manual\
+\'95	Safety Clones now exclude Previous Systems to improve speed and reduce size\
+\'95	Registration/serial number fields trim excess whitespace better\
+\'95	Improvements to log readability\
+\'95	Built-in copy scripts are now properly set to Read-Only\
+\'95	Update check now uses Port 80 to avoid firewall problems\
+\'95	Files that go "missing" during copy due to active volume use are now warnings, not errors \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf0 Version 1.0.1(55), January 19, 2004
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+\cf0 \'95 Changed initial launch to display the manual, to introduce users to SuperDuper's capabilities.\
+\'95 Fixed a problem when storing images on NFS volumes: they would sometimes end up being owned by "nfsnobody".\
+\'95 Corrected a problem when "blessing" the target that would sometimes use the incorrect boot information\
+\'95 Updated and clarified various parts of the manual, including the introduction, Safety Clone description, Copy Script description and aspects of the tutorials.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf0 Version 1.0(54), January 13, 2004
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+\cf0 \'95 Fixed a problem where running for the first time without changing the selected script would fail, saying "Backup - all files" could not be found.\
+\'95 Corrected a timing issue: on a fast machine, restoring from an ASR image would sometimes indicate that the volume could not be found.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li360\ri0\partightenfactor0
+
+\fs24 \cf0 Version 1.0(53), January 12, 2004
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\li580\fi-220\ri0\partightenfactor0
+\cf0 \'95 General release\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\f1\b0\fs24 \cf0 SuperDuper! 2.0\
+Written by Bruce B. Lacey\
+\
+Published by Shirt Pocket\
+\
+More information:	{\field{\*\fldinst{HYPERLINK "http://www.shirt-pocket.com/SuperDuper"}}{\fldrslt 
+\f0 \cf4 http://www.shirt-pocket.com/SuperDuper}}\
+Support: 			{\field{\*\fldinst{HYPERLINK "mailto:support@shirt-pocket.com"}}{\fldrslt 
+\f0 \cf5 support@shirt-pocket.com}}\
+\
+Copyright \'a9 2003-2012 Bruce B. Lacey. All rights reserved. Published by Shirt Pocket.
+\f0 \
+\
+===\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\ri0\partightenfactor0
+
+\f2 \cf0 Growl is Copyright (c) The Growl Project, 2004 \
+All rights reserved.\
+\
+Redistribution and use in source and binary forms, with or without modification,\
+are permitted provided that the following conditions are met:\
+\
+1. Redistributions of source code must retain the above copyright\
+   notice, this list of conditions and the following disclaimer.\
+2. Redistributions in binary form must reproduce the above copyright\
+   notice, this list of conditions and the following disclaimer in the\
+   documentation and/or other materials provided with the distribution.\
+3. Neither the name of Growl nor the names of its contributors\
+   may be used to endorse or promote products derived from this software\
+   without specific prior written permission.\
+\
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND\
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR\
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON\
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
+\
+===\
+SSCrypto is Copyright (c) 2003-2006, Septicus Software All rights reserved.\
+ \
+Redistribution and use in source and binary forms, with or without\
+modification, are permitted provided that the following conditions are\
+met:\
+ \
+* Redistributions of source code must retain the above copyright\
+notice, this list of conditions and the following disclaimer. \
+* Redistributions in binary form must reproduce the above copyright\
+notice, this list of conditions and the following disclaimer in the\
+documentation and/or other materials provided with the distribution. \
+* Neither the name of Septicus Software nor the names of its contributors\
+may be used to endorse or promote products derived from this software\
+without specific prior written permission.\
+ \
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS\
+IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED\
+TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A\
+PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER\
+OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,\
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,\
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR\
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF\
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING\
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
+}

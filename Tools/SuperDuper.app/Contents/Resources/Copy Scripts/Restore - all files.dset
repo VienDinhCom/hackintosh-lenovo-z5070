@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Class</key>
+	<string>Composite</string>
+	<key>Description</key>
+	<string>All files on (source) will be restored to (target), except the temporary and system-specific files that Apple recommends excluding. Any Time Machine backup on (source) will not be copied to (target).</string>
+	<key>Directives</key>
+	<array>
+		<dict>
+			<key>Directive</key>
+			<string>exclude</string>
+			<key>Item</key>
+			<string>Backups.backupdb</string>
+		</dict>
+	</array>
+	<key>Include Directives</key>
+	<array>
+		<string>Backup - all files.dset</string>
+	</array>
+</dict>
+</plist>

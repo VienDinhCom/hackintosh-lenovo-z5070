@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.shirtpocket.backuponmount</string>
+	<key>LimitLoadToSessionType</key>
+	<string>Aqua</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>osascript</string>
+		<string>SDBackupOnMountAppleScript.Path</string>
+	</array>
+	<key>QueueDirectories</key>
+	<array/>
+	<key>RunAtLoad</key>
+	<false/>
+	<key>StartOnMount</key>
+	<true/>
+	<key>WatchPaths</key>
+	<array>
+		<string>/Volumes</string>
+	</array>
+	<key>ThrottleInterval</key>
+	<integer>0</integer>
+</dict>
+</plist>

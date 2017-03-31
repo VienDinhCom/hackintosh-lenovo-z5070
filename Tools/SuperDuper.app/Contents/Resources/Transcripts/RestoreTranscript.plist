@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+   <dict>
+      <key>Type</key>
+      <string>Restore</string>
+      <key>PhaseList</key>
+      <array>
+         <dict>
+            <key>Phase</key>
+            <string>beforeCopy</string>
+            <key>ActionList</key>
+            <array>
+               <dict>
+                  <key>Action</key>
+                  <string></string>
+                  <key>infoMsg</key>
+                  <string>shouldEnableTargetPermissions</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+						<!-- The newline character should be here -->
+				    <string>if [ -e /var/db/volinfo.database ]; then hasJoinedLines=$(grep --count ': *0000000[01][0-9A-F]' /var/db/volinfo.database); hasBlankLines=$(grep --count '^$' /var/db/volinfo.database); if [ $hasJoinedLines -eq 0 -a $hasBlankLines -eq 0 ]; then echo "volinfo.database OK"; else cp /var/db/volinfo.database /tmp/volinfo.database; if [ $hasJoinedLines -eq 1 ]; then sed '/: *0000000[01][0-9A-F]/ s/: *0000000\([01]\)/: 0000000\0\
+/' /tmp/volinfo.database > /tmp/volinfo.database.repaired; mv /tmp/volinfo.database.repaired /tmp/volinfo.database; fi; if [ $hasBlankLines -eq 1 ]; then sed '/^$/d' /tmp/volinfo.database > /tmp/volinfo.database.repaired; mv /tmp/volinfo.database.repaired /tmp/volinfo.database; fi; mv /tmp/volinfo.database /var/db/volinfo.database; echo "Repaired volinfo.database"; fi; else echo "/var/db/volinfo.database does not exist."; fi</string>
+                        <key>infoMsg</key>
+                        <string>Verifying the integrity of volinfo.database</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                     <dict>
+                        <key>command</key>
+                        <string>mount; while [ ! -d SDTargetVolumeMount.'Path ]; do echo "waiting for " SDTargetVolume.'Name "."; (( limit += 1)); if (( limit >= 25 )); then break; fi; sleep 2; done; if [ "SDIsLionOrLater" == "YES" ]; then /usr/sbin/diskutil enableOwnership SDTargetVolumeMount.'Path; else disktool -r; vsdbutil -a SDTargetVolumeMount.'Path; fi</string>
+				    <key>infoMsg</key>
+                        <string>Enabling permissions on SDTargetVolume.Name</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                     <dict>
+                        <key>command</key>
+                        <string>vsdbutil -c SDTargetVolumeMount.'Path | grep -i -F "enabled"; if [ "$?" == "1" ]; then echo "Could not enable permissions for volume" SDTargetVolume.'Name ": please restart your Macintosh" >&amp;2; exit 2; fi </string>
+                        <key>infoMsg</key>
+                        <string>Verifying that permissions are enabled for SDTargetVolume.Name</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                     <dict>
+                        <key>command</key>
+                        <string>if [ "SDIsSnowLeopardOrLater" == "NO" ]; then if [ "SDSourceVolume.ACL" == "Enabled" -a "SDTargetVolume.ACL" == "Disabled" ]; then /usr/sbin/fsaclctl -e -p SDTargetVolumeMount.'Path; else if [ "SDSourceVolume.ACL" == "Disabled" -a "SDTargetVolume.ACL" == "Enabled" ]; then /usr/sbin/fsaclctl -d -p SDTargetVolumeMount.'Path; fi; fi; fi</string>
+                        <key>infoMsg</key>
+                        <string>Verifying that SDTargetVolume.Name ACL support matches SDSourceVolume.Name</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>					 
+                  </array>
+               </dict>
+               <dict>
+                  <key>Action</key>
+                  <string>shouldInvokeBeforeCopyScript</string>
+                  <key>infoMsg</key>
+                  <string>shouldInvokeBeforeCopyScript</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>_SDBeforeCopyScript.'Path SDSourceVolume.'Name SDSourceVolumeMount.'Path SDTargetVolume.'Name SDTargetVolumeMount.'Path _SDCopyScript.'Path SDASRimage.'Path</string>
+                        <key>infoMsg</key>
+                        <string>Invoking Before Copy shell script: _SDBeforeCopyScript.Path</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+					</dict>
+                 </array>
+               </dict>
+            </array>
+         </dict>
+		 <dict>
+            <key>Phase</key>
+            <string>copyFiles</string>
+            <key>ActionList</key>
+            <array>
+               <dict>
+                  <key>Action</key>
+                  <string></string>
+                  <key>infoMsg</key>
+                  <string>shouldCopyFiles</string>
+				  <key>StatusViewClass</key>
+				  <string>SDInfoStatusTwoLineActionSubview</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>asr -source SDASRimage.'Path -target SDTargetVolumeMount.'Path -erase -noprompt SDSkipVerify; if [ "SDTargetVolume.isJournaled" == "YES" ]; then /usr/sbin/diskutil enableJournal SDTargetVolume.Device; fi</string>
+                        <key>infoMsg</key>
+                        <string>Restoring SDSourceVolume.Name to SDTargetVolume.Name</string>
+                        <key>parseMethod</key>
+                        <string>asrRestore:</string>
+                     </dict>
+                     <dict>
+                        <key>command</key>
+                        <string>SDdiskTool.'Path -s SDUUID.hexString SDTargetVolume.Device</string>
+                        <key>infoMsg</key>
+                        <string>Restoring UUID for target device SDTargetVolume.Device (SDUUID.hexString)</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                  </array>
+               </dict>
+            </array>
+         </dict>
+         <dict>
+            <key>Phase</key>
+            <string>afterCopy</string>
+            <key>ActionList</key>
+            <array>
+              <dict>
+                <key>Action</key>
+                <string>shouldUpdatePrebindingOnTarget</string>
+                <key>infoMsg</key>
+                <string>shouldUpdatePrebindingOnTarget</string>
+                <key>CommandList</key>
+                <array>
+                  <dict>
+                    <key>command</key>
+                    <string>eval MP=$(SDdiskTool.'Path -m SDTargetVolume.Device); if [ -a "${MP}"/System ]; then "${MP}"/usr/bin/update_dyld_shared_cache -root "${MP}" 2>&amp;1; echo "Successfully updated boot cache on" $(basename "${MP}"); else echo "Did not update boot cache on" $(basename "${MP}") " because it does not contain an operating system."; fi</string>
+                    <key>infoMsg</key>
+                    <string>Updating boot cache on SDTargetVolumeMount.'Path</string>
+                    <key>parseMethod</key>
+                    <string>shortIndeterminate:</string>
+                  </dict>
+                </array>
+              </dict>
+               <dict>
+                  <key>Action</key>
+                  <string></string>
+                  <key>infoMsg</key>
+                  <string>shouldBlessTargetSystem</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>eval MP=$(SDdiskTool.'Path -m SDTargetVolume.Device); if [ -a "${MP}"/System/Library/CoreServices/BootX -o -a "${MP}"/System/Library/CoreServices/boot.efi ]; then UCHGSET=0; if [ -a "${MP}"/System/Library/CoreServices/BootX ]; then UCHGSET=$(ls -lo "${MP}"/System/Library/CoreServices/BootX | grep -vqF uchg; echo $?); chflags nouchg "${MP}"/System/Library/CoreServices/BootX; bootinfo=$([ -e "${MP}"/usr/standalone/ppc/bootx.bootinfo ] &amp;&amp; echo --bootinfo); fi; bootefi=$([ -e "${MP}"/usr/standalone/i386/boot.efi ] &amp;&amp; echo --bootefi); bless --folder "${MP}"/System/Library/CoreServices --save9 --label SDTargetVolume.'Name $bootinfo $bootefi 2> >(grep -v "CoreText performance note" 1>&amp;2); if [ $UCHGSET -eq 1 ]; then chflags uchg "${MP}"/System/Library/CoreServices/BootX; fi; echo "Successfully blessed Mac OS X folder on $(basename \"${MP}\")"; else echo "Did not bless Mac OS X System Folder on $(basename \"${MP}\") because it does not exist."; fi</string>
+				    <key>infoMsg</key>
+                        <string>Blessing OS X System Folder</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                     <dict>
+                        <key>command</key>
+                        <string>eval MP=$(SDdiskTool.'Path -m SDTargetVolume.Device); if [ -a "${MP}"/System\ Folder ]; then bless --folder9 "${MP}"/System\ Folder --label SDTargetVolume.'Name --saveX; echo "Successfully blessed Mac OS 9 System Folder on $(basename \"${MP}\")"; else echo "Did not bless Mac OS 9 System Folder on $(basename \"${MP}\") because it does not exist."; fi</string>
+                        <key>infoMsg</key>
+                        <string>Blessing OS 9 System Folder</string>
+                     </dict>
+                  </array>
+               </dict>
+               <dict>
+                 <key>Action</key>
+                 <string>shouldRebuildKEXTCacheOnTarget</string>
+                 <key>infoMsg</key>
+                 <string>shouldRebuildKEXTCacheOnTarget</string>
+                 <key>CommandList</key>
+                 <array>
+                   <dict>
+                     <key>command</key>
+                     <string>if [ -a SDTargetVolumeMount.'Path/usr/sbin/kextcache ]; then touch -f SDTargetVolumeMount.'Path/System/Library/Extensions; SDTargetVolumeMount.'Path/usr/sbin/kextcache -update-volume SDTargetVolumeMount.'Path 2>&amp;1; echo "Successfully rebuilt KEXT cache on " SDTargetVolume.'Name; else echo "Did not rebuild KEXT cache on " SDTargetVolume.'Name " because the " SDTargetVolume.'Name "/usr/sbin/kextcache utility does not exist."; fi</string>
+                     <key>infoMsg</key>
+                     <string>Rebuilding KEXT cache</string>
+                     <key>parseMethod</key>
+                     <string>shortIndeterminate:</string>
+                   </dict>
+                 </array>
+               </dict>
+               <dict>
+                  <key>Action</key>
+                  <string>shouldInstallPackage</string>
+                  <key>infoMsg</key>
+                  <string>shouldInstallPackage</string>
+				  <key>StatusViewClass</key>
+				  <string>SDInfoStatusInstallerActionSubview</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>eval MP=$(SDdiskTool.'Path -m SDTargetVolume.Device); installer -verboseR -dumplog -pkg _SDInstallerPackage.'Path -target "${MP}" >&amp;1 2>&amp;1</string>
+                        <key>infoMsg</key>
+                        <string>Installing _SDInstallerPackage.Path on SDTargetVolume.Name</string>
+                        <key>parseMethod</key>
+                        <string>installPackage:</string>
+                     </dict>
+                  </array>
+               </dict>
+               <dict>
+                  <key>Action</key>
+                  <string>shouldInvokeSiteCustomizationScript</string>
+                  <key>infoMsg</key>
+                  <string>shouldInvokeSiteCustomizationScript</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>eval MP=$(SDdiskTool.'Path -m SDTargetVolume.Device); _SDSiteCustomizationScript.'Path SDSourceVolume.'Name SDSourceVolumeMount.'Path SDTargetVolume.'Name "${MP}" _SDCopyScript.'Path SDASRimage.'Path</string>
+                        <key>infoMsg</key>
+                        <string>Invoking After Copy shell script: _SDSiteCustomizationScript.Path</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                  </array>
+               </dict>
+            </array>
+         </dict>
+         <dict>
+            <key>Phase</key>
+            <string>finalize</string>
+            <key>ActionList</key>
+            <array>
+               <dict>
+                  <key>Action</key>
+                  <string>shouldRebootFromTarget</string>
+                  <key>infoMsg</key>
+                  <string>shouldRebootFromTarget</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>eval MP=$(SDdiskTool.'Path -m SDTargetVolume.Device); if [ -a "${MP}"/System/Library/CoreServices/BootX -o -a "${MP}"/System/Library/CoreServices/boot.efi ]; then UCHGSET=0; if [ -a "${MP}"/System/Library/CoreServices/BootX ]; then UCHGSET=$(ls -lo "${MP}"/System/Library/CoreServices/BootX | grep -vqF uchg; echo $?); chflags nouchg "${MP}"/System/Library/CoreServices/BootX; bootinfo=$([ -e "${MP}"/usr/standalone/ppc/bootx.bootinfo ] &amp;&amp; echo --bootinfo); fi; bootefi=$([ -e "${MP}"/usr/standalone/i386/boot.efi ] &amp;&amp; echo --bootefi); bless --folder "${MP}"/System/Library/CoreServices --save9 --label SDTargetVolume.'Name $bootinfo $bootefi 2> >(grep -v "CoreText performance note" 1>&amp;2); if [ $UCHGSET -eq 1 ]; then chflags uchg "${MP}"/System/Library/CoreServices/BootX; fi; echo "Successfully set $(basename \"${MP}\") as startup disk"; else echo "Could not set startup disk to $(basename \"${MP}\") because it does not contain a valid Mac OS X System Folder."; exit 1; fi</string>
+                        <key>infoMsg</key>
+                        <string>Setting startup disk to SDTargetVolume.Name</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                     <dict>
+                        <key>command</key>
+                        <string>shouldContinue=$(osascript -e 'Tell application "SuperDuper!" to alert user "SuperDuper! will restart your Macintosh from " &amp; name of target volume of current settings with timeout 10 alternate button "Skip" default button "Shut Down Now"' 2>/dev/null); if [ "${shouldContinue}1" == "true1" ]; then nohup /bin/bash -c "sleep 10; osascript SDAppBundle.'Path/Contents/Resources/Scripts/restart.scpt" &amp;>/dev/null &amp; fi</string>
+                        <key>infoMsg</key>
+                        <string>Restarting Computer</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                  </array>
+               </dict>
+		       <dict>
+                  <key>Action</key>
+                  <string>shouldSetTargetAsStartupDisk</string>
+                  <key>infoMsg</key>
+                  <string>shouldSetTargetAsStartupDisk</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>eval MP=$(SDdiskTool.'Path -m SDTargetVolume.Device); if [ -a "${MP}"/System/Library/CoreServices/BootX -o -a "${MP}"/System/Library/CoreServices/boot.efi ]; then UCHGSET=0; if [ -a "${MP}"/System/Library/CoreServices/BootX ]; then UCHGSET=$(ls -lo "${MP}"/System/Library/CoreServices/BootX | grep -vqF uchg; echo $?); chflags nouchg "${MP}"/System/Library/CoreServices/BootX; bootinfo=$([ -e "${MP}"/usr/standalone/ppc/bootx.bootinfo ] &amp;&amp; echo --bootinfo); fi; bootefi=$([ -e "${MP}"/usr/standalone/i386/boot.efi ] &amp;&amp; echo --bootefi); bless --folder "${MP}"/System/Library/CoreServices --save9 --label SDTargetVolume.'Name $bootinfo $bootefi 2> >(grep -v "CoreText performance note" 1>&amp;2); if [ $UCHGSET -eq 1 ]; then chflags uchg "${MP}"/System/Library/CoreServices/BootX; fi; echo "Successfully set $(basename \"${MP}\") as startup disk"; else echo "Could not set startup disk to $(basename \"${MP}\") because it does not contain a valid Mac OS X System Folder."; exit 1; fi</string>
+                        <key>infoMsg</key>
+                        <string>Setting startup disk to SDTargetVolume.Name</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                  </array>
+               </dict>
+               <dict>
+                  <key>Action</key>
+                  <string>shouldShutdownComputer</string>
+                  <key>infoMsg</key>
+                  <string>shouldShutdownComputer</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>shouldContinue=$(osascript -e 'Tell application "SuperDuper!" to alert user "SuperDuper! will shut down your Macintosh" with timeout 10 alternate button "Skip" default button "Shut Down Now"' 2>/dev/null); if [ "${shouldContine}1" == "true1" ]; then nohup /bin/bash -c "sleep 10; osascript SDAppBundle.'Path/Contents/Resources/Scripts/shutdown.scpt" &amp;>/dev/null &amp; fi</string>
+                        <key>infoMsg</key>
+                        <string>Shutting computer down</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                  </array>
+               </dict>
+               <dict>
+                  <key>Action</key>
+                  <string>shouldSleepComputer</string>
+                  <key>infoMsg</key>
+                  <string>shouldSleepComputer</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>shouldContinue=$(osascript -e 'Tell application "SuperDuper!" to alert user "SuperDuper! will put your Macintosh to sleep" with timeout 10 alternate button "Skip" default button "Sleep Now"' 2>/dev/null); if [ "${shouldContinue}1" == "true1" ]; then nohup /bin/bash -c "sleep 10; osascript SDAppBundle.'Path/Contents/Resources/Scripts/sleep.scpt" &amp;>/dev/null &amp; fi</string>
+                        <key>infoMsg</key>
+                        <string>Sleeping computer</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                  </array>
+               </dict>
+               <dict>
+                  <key>Action</key>
+                  <string>shouldQuitSuperDuper</string>
+                  <key>infoMsg</key>
+                  <string>shouldQuitSuperDuper</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>(sleep 1; osascript -e "tell application \"SuperDuper!\" to quit" &amp;>/dev/null)&amp;</string>
+                        <key>infoMsg</key>
+                        <string>Quitting SuperDuper!</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                  </array>
+               </dict>
+            </array>			
+         </dict>
+      </array>
+   </dict>
+</plist>

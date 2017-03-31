@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+   <dict>
+      <key>Type</key>
+      <string>Image</string>
+      <key>PhaseList</key>
+      <array>
+         <dict>
+            <key>Phase</key>
+            <string>beforeCopy</string>
+            <key>ActionList</key>
+            <array>
+               <dict>
+                  <key>Action</key>
+                  <string></string>
+                  <key>infoMsg</key>
+                  <string>shouldEnableSourcePermissions</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+						<!-- The newline character should be here -->
+				    <string>if [ -e /var/db/volinfo.database ]; then hasJoinedLines=$(grep --count ': *0000000[01][0-9A-F]' /var/db/volinfo.database); hasBlankLines=$(grep --count '^$' /var/db/volinfo.database); if [ $hasJoinedLines -eq 0 -a $hasBlankLines -eq 0 ]; then echo "volinfo.database OK"; else cp /var/db/volinfo.database /tmp/volinfo.database; if [ $hasJoinedLines -eq 1 ]; then sed '/: *0000000[01][0-9A-F]/ s/: *0000000\([01]\)/: 0000000\0\
+/' /tmp/volinfo.database > /tmp/volinfo.database.repaired; mv /tmp/volinfo.database.repaired /tmp/volinfo.database; fi; if [ $hasBlankLines -eq 1 ]; then sed '/^$/d' /tmp/volinfo.database > /tmp/volinfo.database.repaired; mv /tmp/volinfo.database.repaired /tmp/volinfo.database; fi; mv /tmp/volinfo.database /var/db/volinfo.database; echo "Repaired volinfo.database"; fi; else echo "/var/db/volinfo.database does not exist."; fi</string>
+                        <key>infoMsg</key>
+                        <string>Verifying the integrity of volinfo.database</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                     <dict>
+                        <key>command</key>
+				    <string>if [ "SDSourceVolume.isForeignFileSystem" == "YES" ]; then echo "Can not enable permissions on non-HFS volumes."; else if [ "SDIsLionOrLater" == "YES" ]; then /usr/sbin/diskutil enableOwnership SDSourceVolumeMount.'Path; else disktool -r; vsdbutil -a SDSourceVolumeMount.'Path; fi; fi</string>
+                        <key>infoMsg</key>
+                        <string>Enabling permissions on SDSourceVolume.Name</string>
+                     </dict>
+                     <dict>
+                        <key>command</key>
+                        <string>if [ "SDSourceVolume.isForeignFileSystem" == "YES" ]; then echo "Can not verify permissions on non-HFS volumes."; else vsdbutil -c SDSourceVolumeMount.'Path | grep -i -F "enabled"; if [ "$?" == "1" ]; then echo "Could not enable permissions for volume" SDSourceVolume.'Name ": please restart your Macintosh" >&amp;2; exit 2; fi; fi</string>
+                        <key>infoMsg</key>
+                        <string>Verifying that permissions are enabled for SDSourceVolume.Name</string>
+                     </dict>
+                  </array>
+               </dict>
+               <dict>
+                  <key>Action</key>
+                  <string>shouldRepairSourcePermissions</string>
+                  <key>infoMsg</key>
+                  <string>shouldRepairSourcePermissions</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>/usr/sbin/diskutil repairPermissions SDSourceVolumeMount.'Path >&amp;1 2>&amp;1</string>
+                        <key>infoMsg</key>
+                        <string>Repairing permissions on SDSourceVolume.Name</string>
+                        <key>parseMethod</key>
+                        <string>indeterminate:</string>
+                     </dict>
+                  </array>
+               </dict>
+               <dict>
+                  <key>Action</key>
+                  <string></string>
+                  <key>infoMsg</key>
+                  <string>shouldInitializeASRimage</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>umask 0022; sudo -P -u \#SDUser.uid hdiutil create -size SDTargetVolume.ImageCapacity -fs "SDSourceVolume.FileSystem.Abbreviation" -volname SDSourceVolume.'Name -ov SDTargetVolumeAbsolute.'Path.sparseimage 2>&amp;1</string>
+                        <key>infoMsg</key>
+                        <string>Creating disk image SDTargetVolume.Name</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                     <dict>
+                        <key>command</key>
+                        <string>echo $(sudo -P -u \#SDUser.uid hdiutil attach SDTargetVolumeAbsolute.'Path.sparseimage -noverify -noautofsck -nobrowse -mountpoint SDTargetVolumeMount.'Path.sparseimage | tail -1 | awk '{print $1}') > /tmp/SDTargetImageDevice</string>
+                        <key>infoMsg</key>
+                        <string>Mounting SDTargetVolumeAbsolute.'Path on SDTargetVolumeMount.'Path</string>
+                     </dict>
+                  </array>
+               </dict>
+               <dict>
+                  <key>Action</key>
+                  <string></string>
+                  <key>infoMsg</key>
+                  <string>shouldEnableTargetPermissions</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>mount >/dev/null; vsdbutil -a SDTargetVolumeMount.'Path.sparseimage</string>
+                        <key>infoMsg</key>
+                        <string>Enabling permissions on SDTargetVolume.Name mounted on SDTargetVolumeMount.'Path.sparseimage</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                     <dict>
+                        <key>command</key>
+                        <string>vsdbutil -c SDTargetVolumeMount.'Path.sparseimage | grep -i "enabled"; if [ "$?" == "1" ]; then echo "Could not enable permissions for " SDTargetVolume.'Name " mounted on " SDTargetVolumeMount.'Path.sparseimage "please restart your Macintosh" >&amp;2; exit 2; fi </string>
+                        <key>infoMsg</key>
+                        <string>Verifying that permissions are enabled for SDTargetVolume.Name mounted on SDTargetVolumeMount.'Path.sparseimage</string>
+                     </dict>
+                     <dict>
+                        <key>command</key>
+                        <string>if [ "SDSourceVolume.ACL" == "Enabled" -a "SDIsSnowLeopardOrLater" == "NO" ]; then fsaclctl -e -p SDTargetVolumeMount.'Path.sparseimage; fi</string>
+                        <key>infoMsg</key>
+                        <string>Verifying that SDTargetVolume.Name ACL support matches SDSourceVolume.Name</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>					 
+                  </array>
+               </dict>
+               <dict>
+                  <key>Action</key>
+                  <string>shouldInvokeBeforeCopyScript</string>
+                  <key>infoMsg</key>
+                  <string>shouldInvokeBeforeCopyScript</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>_SDBeforeCopyScript.'Path SDSourceVolume.'Name SDSourceVolumeMount.'Path SDTargetVolume.'Name SDTargetVolumeMount.'Path.sparseimage _SDCopyScript.'Path SDTargetVolumeAbsolute.'Path</string>
+                        <key>infoMsg</key>
+                        <string>Invoking Before Copy shell script: _SDBeforeCopyScript.Path</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                  </array>
+               </dict>
+            </array>
+         </dict>
+         <dict>
+            <key>Phase</key>
+            <string>copyFiles</string>
+            <key>ActionList</key>
+            <array>
+               <dict>
+                  <key>Action</key>
+                  <string></string>
+                  <key>infoMsg</key>
+                  <string>shouldCopyFiles</string>
+                  <key>StatusViewClass</key>
+                  <string>SDInfoStatusCopyActionSubview</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>SDcloner.'Path -v -v -p -c SDCopyMode -a SDShouldCopyACLs -i 'SDCopyErrorsToIgnore' -d _SDCopyScript.'Path -u SDUserLicense.Name -k "SDUserLicense.Key" SDSourceVolumeMount.'Path SDTargetVolumeMount.'Path.sparseimage</string>
+                        <key>infoMsg</key>
+                        <string>Cloning SDSourceVolume.Name to SDTargetVolume.Name</string>
+                        <key>parseMethod</key>
+                        <string>SVUclone:</string>
+                     </dict>
+                  </array>
+               </dict>
+            </array>
+         </dict>
+         <dict>
+            <key>Phase</key>
+            <string>afterCopy</string>
+            <key>ActionList</key>
+            <array>
+              <dict>
+                <key>Action</key>
+                <string>shouldRebuildKEXTCacheOnTarget</string>
+                <key>infoMsg</key>
+                <string>shouldRebuildKEXTCacheOnTarget</string>
+                <key>CommandList</key>
+                <array>
+                  <dict>
+                    <key>command</key>
+                    <string>if [ -a SDTargetVolumeMount.'Path.sparseimage/usr/sbin/kextcache ]; then touch -f SDTargetVolumeMount.'Path.sparseimage/System/Library/Extensions; SDTargetVolumeMount.'Path.sparseimage/usr/sbin/kextcache -v 2 -update-volume SDTargetVolumeMount.'Path.sparseimage 2>&amp;1; echo "Successfully rebuilt KEXT cache on " SDTargetVolume.'Name; else echo "Did not rebuild KEXT cache on " SDTargetVolume.'Name " because the " SDTargetVolume.'Name "/usr/sbin/kextcache utility does not exist."; fi</string>
+                    <key>infoMsg</key>
+                    <string>Rebuild Kernel Extension cache...</string>
+                    <key>parseMethod</key>
+                    <string>shortIndeterminate:</string>
+                  </dict>
+                 </array>
+                 </dict>
+                 <dict>
+                  <key>Action</key>
+                  <string></string>
+                  <key>infoMsg</key>
+                  <string>shouldConvertASRimage</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                       <key>command</key>
+                       <string>cd /; hdiutil detach $(cat /tmp/SDTargetImageDevice) 2>&amp;1; rm /tmp/SDTargetImageDevice;</string>
+                       <key>infoMsg</key>
+                       <string>Unmounting SDTargetVolumeAbsolute.'Path from SDTargetVolumeMount.'Path.sparseimage</string>
+                       <key>parseMethod</key>
+                       <string>shortIndeterminate:</string>
+                     </dict>
+                     <dict>
+                        <key>command</key>
+                        <string>[ -a SDTargetVolumeAbsolute.'Path ] &amp;&amp; rm SDTargetVolumeAbsolute.'Path; sudo -P -u \#SDUser.uid hdiutil convert SDTargetVolumeAbsolute.'Path.sparseimage -format SDASRimage.Format -o SDTargetVolumeAbsolute.'Path; rm SDTargetVolumeAbsolute.'Path.sparseimage</string>
+                        <key>infoMsg</key>
+                        <string>Converting SDTargetVolumeAbsolute.'Path to SDASRimage.Format format</string>
+                        <key>parseMethod</key>
+                        <string>indeterminate:</string>
+                     </dict>
+                  </array>
+               </dict>
+               <dict>
+                  <key>Action</key>
+                  <string></string>
+                  <key>infoMsg</key>
+                  <string>shouldPreScanASRimage</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>asr -imagescan SDTargetVolumeAbsolute.'Path 2>&amp;1</string>
+                        <key>infoMsg</key>
+                        <string>Pre-scanning SDTargetVolumeAbsolute.Path to support fast block copy restore</string>
+                        <key>parseMethod</key>
+                        <string>indeterminate:</string>
+                     </dict>
+                  </array>
+               </dict>
+               <dict>
+                  <key>Action</key>
+                  <string>shouldInvokeSiteCustomizationScript</string>
+                  <key>infoMsg</key>
+                  <string>shouldInvokeSiteCustomizationScript</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>_SDSiteCustomizationScript.'Path SDSourceVolume.'Name SDSourceVolumeMount.'Path SDTargetVolume.'Name SDTargetVolumeMount.'Path _SDCopyScript.'Path SDASRimage.'Path</string>
+                        <key>infoMsg</key>
+                        <string>Invoking After Copy shell script: _SDSiteCustomizationScript.Path</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                  </array>
+               </dict>
+            </array>
+         </dict>
+		 <dict>
+            <key>Phase</key>
+            <string>finalize</string>
+            <key>ActionList</key>
+            <array>
+               <dict>
+                  <key>Action</key>
+                  <string>shouldShutdownComputer</string>
+                  <key>infoMsg</key>
+                  <string>shouldShutdownComputer</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>shouldContinue=$(osascript -e 'Tell application "SuperDuper!" to alert user "SuperDuper! shut down your Macintosh" with timeout 10 alternate button "Skip" default button "Shut Down Now"' 2>/dev/null); if [ "${shouldContinue}1" == "true1" ]; then nohup /bin/bash -c "sleep 10; osascript SDAppBundle.'Path/Contents/Resources/Scripts/shutdown.scpt" &amp;>/dev/null &amp; fi</string>
+                        <key>infoMsg</key>
+                        <string>Shutting computer down</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                  </array>
+               </dict>
+               <dict>
+                  <key>Action</key>
+                  <string>shouldSleepComputer</string>
+                  <key>infoMsg</key>
+                  <string>shouldSleepComputer</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>shouldContinue=$(osascript -e 'Tell application "SuperDuper!" to alert user "SuperDuper! will put your Macintosh to sleep" with timeout 10 alternate button "Skip" default button "Sleep Now"' 2>/dev/null); if [ "${shouldContinue}1" == "true1" ]; then nohup /bin/bash -c "sleep 10; osascript SDAppBundle.'Path/Contents/Resources/Scripts/sleep.scpt" &amp;>/dev/null &amp; fi</string>
+                        <key>infoMsg</key>
+                        <string>Sleeping computer</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                  </array>
+               </dict>
+                <dict>
+                  <key>Action</key>
+                  <string>shouldQuitSuperDuper</string>
+                  <key>infoMsg</key>
+                  <string>shouldQuitSuperDuper</string>
+                  <key>CommandList</key>
+                  <array>
+                     <dict>
+                        <key>command</key>
+                        <string>(sleep 1; osascript -e "tell application \"SuperDuper!\" to quit" &amp;>/dev/null)&amp;</string>
+                        <key>infoMsg</key>
+                        <string>Quitting SuperDuper!</string>
+                        <key>parseMethod</key>
+                        <string>shortIndeterminate:</string>
+                     </dict>
+                  </array>
+               </dict>
+           </array>
+         </dict>
+      </array>
+   </dict>
+</plist>
