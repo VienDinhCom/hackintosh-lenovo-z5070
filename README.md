@@ -78,3 +78,5 @@ Download Tools, Patchs, Kexts, Clover, ... <a href="https://github.com/Maxvien/h
 * <a href="https://github.com/the-braveknight/Lenovo-Z50-DSDT-Patch">DSDT patch repository for Lenovo Z50-70 laptop</a>
 * <a href="http://www.tonymacx86.com/el-capitan-laptop-guides/179520-guide-lenovo-z50-70-using-clover-uefi-10-11-a.html">[Guide] Lenovo Z50-70/Z40-70 using Clover UEFI (10.11)</a>
 * <a href="https://www.tonymacx86.com/threads/unibeast-install-os-x-el-capitan-on-any-supported-intel-based-pc.172672/">UniBeast: Install OS X El Capitan on Any Supported Intel-based PC</a>
+* <a href="http://www.osxlatitude.com/edp/compatibility/">Extended Driver Package > Compatibility & Bootpacks</a>
+* <a href="https://www.pcsteps.com/2157-mac-os-x-virtual-machine-vmware-player/">Mac OS X Virtual Machine for VMware Player in Windows</a>
