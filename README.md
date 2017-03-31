@@ -18,7 +18,7 @@ For installing OS X El Capitan, please follow <a href="https://www.tonymacx86.co
 
 ## II. Post Installation
 
-Download Tools, Patchs, Kexts, Clover <a href="https://github.com/Maxvien/hackintosh-lenovo-z5070/archive/master.zip">here (hackintosh-lenono-z5070)</a>.
+Download Tools, Patchs, Kexts, Clover, ... <a href="https://github.com/Maxvien/hackintosh-lenovo-z5070/archive/master.zip">here (hackintosh-lenono-z5070)</a>.
 
 `cd ~/Downloads/hackintosh-lenono-z5070`
 
