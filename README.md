@@ -4,7 +4,7 @@
 
 ### 1. Download OSX El Capitan
 
-You can <a href="magnet:?xt=urn:btih:0646475cda838a8458a1142b5ca05fbe43405cb3&dn=Install+OS+X+El+Capitan.app&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fpublic.popcorn-tracker.org%3A6969">download Mac OS El Capitan 10.11.04 via torrent</a>. Then, extract the zip file and copy `Install OS X El Capitan` to Applications folder.
+You can download Mac OS El Capitan 10.11.04 via torrent, the link is here <a href="https://github.com/Maxvien/hackintosh-lenovo-z5070/blob/master/Download%20via%20Torrent.txt">Download via Torrent.txt</a>. Then, extract the zip file and copy `Install OS X El Capitan` to Applications folder.
 
 ### 2. Prepare Bootable USB Drive
 
