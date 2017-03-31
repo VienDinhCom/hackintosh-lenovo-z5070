@@ -10,6 +10,7 @@ magnet:?xt=urn:btih:0646475cda838a8458a1142b5ca05fbe43405cb3&dn=Install+OS+X+El+
 ## Install Clover
 
 `sudo Patchs/mount_efi.sh`
+
 `sudo rm -rf /Volumes/EFI/EFI & sudo cp -R EFI /Volumes/EFI/`
 
 ## Remap Home End Keys
