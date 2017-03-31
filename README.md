@@ -52,7 +52,28 @@ Download Tools, Patchs, Kexts, Clover <a href="https://github.com/Maxvien/hackin
 * Lock Screen
 * Install Homebrew
 
-## III. Reference
+## III. What Works
+
+* UEFI booting via Clover
+* built-in keyboard (with special function keys)
+* built-in trackpad (basic gestures)
+* HDMI video/audio with hotplug
+* AirPlay mirroring to AppleTV
+* native WiFi via BCM943602BAED
+* Bluetooth (with handoff) using BCM943602BAED
+* native USB3 with AppleUSBXHCI (USB2 works also)
+* native audio with AppleHDA, including headphone
+* built-in mic
+* built-in camera
+* native power management
+* battery status
+* backlight controls with smooth transitions, save/restore across restart
+* accelerated graphics for HD4400 including OpenCL
+* wired Ethernet
+* Mac App Store working
+* screen works without flicker
+
+## IV. Reference
 
 * <a href="https://github.com/the-braveknight/Lenovo-Z50-DSDT-Patch">DSDT patch repository for Lenovo Z50-70 laptop</a>
 * <a href="http://www.tonymacx86.com/el-capitan-laptop-guides/179520-guide-lenovo-z50-70-using-clover-uefi-10-11-a.html">[Guide] Lenovo Z50-70/Z40-70 using Clover UEFI (10.11)</a>
