@@ -1,0 +1,2 @@
+LABEL=Data none ntfs rw,auto,nobrowse
+LABEL=Enter none ntfs rw,auto,nobrowse
