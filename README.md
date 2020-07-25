@@ -1,5 +1,7 @@
 # How to install Mac OS El Capitan 10.11.04 on Lenovo Z50-70
 
+Hit the **Star** button if you love this project ⭐️
+
 ## I. Installation
 
 ### 1. Download OSX El Capitan
